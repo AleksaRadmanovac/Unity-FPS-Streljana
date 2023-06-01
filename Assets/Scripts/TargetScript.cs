@@ -56,7 +56,8 @@ public class TargetScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //pauza
+        if (!GameManager.isOver && !GameManager.isPaused)
+        {
 
             if (Health <= 0f)
             {
@@ -116,14 +117,15 @@ public class TargetScript : MonoBehaviour
                         break;
                 }
             }
-        //krajpauze
+        }
         
     }
     IEnumerator RepeatedFunctionCoroutine()
     {
         while (true)
         {
-            //pauza
+            if (!GameManager.isOver && !GameManager.isPaused)
+            {
                 repeatRate -= decreaseRate;
                 Instantiate(mainTarget);
                 if (repeatRate <= repeatLimit)
@@ -132,7 +134,7 @@ public class TargetScript : MonoBehaviour
                 }
 
                 yield return new WaitForSeconds(repeatRate);
-            //krajpauze
+            }
             
         }
     }

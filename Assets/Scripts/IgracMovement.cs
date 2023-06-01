@@ -19,7 +19,7 @@ public class IgracMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //pauza 
+        if (!GameManager.isOver && !GameManager.isPaused) { 
         float horizontalKeyboard = Input.GetAxis("Horizontal");
         float verticalKeyboard = Input.GetAxis("Vertical");
 
@@ -30,7 +30,7 @@ public class IgracMovement : MonoBehaviour
         float horizontalMouse = Input.GetAxis("Mouse X");
 
         transform.Rotate(Vector3.up, horizontalMouse * sensitivity);
-        //krajpauze
+        }
     }
 
 

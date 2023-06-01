@@ -62,7 +62,8 @@ public class ShootingScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //pauza
+        if (!GameManager.isOver && !GameManager.isPaused)
+        {
             if (Input.GetKeyDown(KeyCode.R))
             {
                 startReloading();
@@ -113,7 +114,7 @@ public class ShootingScript : MonoBehaviour
                     Reload();
                 }
             }
-        //krajpauze
+        }
 
         void startReloading()
         {
